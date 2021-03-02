@@ -6,11 +6,11 @@ using namespace std;
 */
 int main()
 {
-  array<double,101> arr;
+  array<long double,101> arr;
   arr[0] = 1;
   for (int index=0; index < 100; index++)
   {
-    arr[index+1] *= arr[index];
+    arr[index+1] = (index+1)*arr[index];
     cout << index << "! =" << arr[index] << endl;
   }
     cout  << "100! =" << arr[100] << endl;
