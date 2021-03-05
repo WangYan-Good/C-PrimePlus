@@ -7,34 +7,41 @@ struct bop{
   int preference;
 };
 
-void initbop( bop** bopvariable )
+void initbop( bop* bopvariable )
 {
-  *bopvariable = new bop;
   cout << "Enter fullname: " ;
-  cin >> (*bopvariable)->fullname ;
+  cin >> bopvariable->fullname ;
 
   cout << "Enter title: ";
-  cin >> (*bopvariable)->title ;
+  cin >> bopvariable->title ;
 
   cout << "Enter bopname:";
-  cin >> (*bopvariable)->bopname ;
+  cin >> bopvariable->bopname ;
 
   cout << "Enter preference:";
-  cin >> (*bopvariable)->preference;
+  cin >> bopvariable->preference;
 }
 
-void displayByPreference( bop* bopvariable , int preference )
+void putbop( bop bopvariable )
+{
+  cout << bopvariable.fullname <<endl;
+  cout << bopvariable.title << endl;
+  cout << bopvariable.bopname << endl;
+  cout << bopvariable.preference << endl;
+}
+
+void displayByPreference( bop bopvariable , int preference )
 {
   switch(preference)
   {
     case 1:
-      cout << bopvariable->fullname << endl;
+      cout << bopvariable.fullname << endl;
       break;
     case 2:
-      cout << bopvariable->title << endl;
+      cout << bopvariable.title << endl;
       break;
     case 3:
-      cout << bopvariable->bopname << endl;
+      cout << bopvariable.bopname << endl;
       break;
     default:
       break;

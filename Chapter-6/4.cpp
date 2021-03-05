@@ -68,19 +68,26 @@ Bye!
 int main()
 {
   char option;
+  const int num = 3;
   bool  BREAK;
   //
   // initialization struct
   //
-  bop* programmer[5] ;
-  for ( bop* x : programmer )
+  bop* programmer = new bop[num];
+  for( int index = 0; index < num; index ++ )
   {
-    initbop( &x );
+    initbop( &programmer[index] );
     cout << endl;
   }
+/*
+  for(  int index = 0; index < 3; index ++ )
+  {
+    putbop( programmer[index] );
+  }
+*/
 
-  cout << "Benevolent Order Programmer Report " << endl;
-  cout << "a. display by name        b. display by title "<<endl << "c. display by bopname  d. display by preference" << endl << "q. quit" << endl;
+  cout << "Benevolent Order Programmer Report " << endl;
+  cout << "a. display by name    b. display by title "<<endl << "c. display by bopname    d. display by preference" << endl << "q. quit" << endl;
   cout << "Enter your choice: ";
 
   while ( true )
@@ -89,19 +96,35 @@ int main()
     switch( option )
     {
       case 'a':
-        for ( bop* x : programmer ) cout << x->fullname<<endl;
+        //show bop name
+        for (int index = 0; index < num; index++)
+        {
+            cout << programmer[index].fullname << endl;
+        }
         BREAK = false;
         break;
       case 'b':
-        for ( bop* x : programmer ) cout << x->title<<endl;
+        //display bop title
+        for ( int index = 0; index < num; index++ )
+        {
+            cout << programmer[index].title << endl;
+        }
         BREAK = false;
         break;
       case 'c':
-        for ( bop* x : programmer ) cout << x->bopname<<endl;
+        //display bop bopname
+        for ( int index = 0; index < num; index++ )
+        {
+            cout << programmer[index].bopname << endl;
+        }
         BREAK = false;
         break;
       case 'd':
-        for ( bop* x : programmer ) displayByPreference( x , x->preference );
+        //display bop by perference
+        for ( int index = 0; index < num; index++ )
+        {
+            displayByPreference( programmer[index],programmer[index].preference );
+        }
         BREAK = false;
         break;
       case 'q':
