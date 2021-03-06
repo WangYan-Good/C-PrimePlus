@@ -11,10 +11,35 @@ int main()
     int DonaPers;
     cout << "Enter donate person number:";
     cin >> DonaPers;
-
-    donateman* man = new donateman[DonaPers];
-    for( int index = 0; index < DonaPers, index++ )
+    //
+    //allocate for donate man && initialization
+    //
+    donateman dm[DonaPers];
+    //
+    //create Grand Partrons
+    //
+    GrandPatrons* gphead = new GrandPatrons;
+    gphead->donate = nullptr;
+    gphead->next = nullptr;
+    //
+    //create Patrons
+    //
+    Patrons* pahead = new Patrons;
+    pahead->next = nullptr;
+    pahead->next = nullptr;
+    for( int index = 0; index < DonaPers; index++ )
     {
-        initDona( &man[index] );
+      //
+      //initialization all of donate person
+      //
+      InitDona( &dm[index], gphead, pahead );
     }
+    //
+    //show Grand Patrons and Patrons
+    //
+    cout << "Grand Patrons:"<< endl;
+    PrintGrandPatrons( gphead );
+    cout << "Patrons:"<< endl;
+    PrintPatrons( pahead );
+    return 0;
 }
