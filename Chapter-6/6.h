@@ -95,7 +95,6 @@ void PrintPatrons( Patrons* head )
         cout << p->donate->name << endl;
         p = p->next;
     }
-    cout << endl;
 }
 //
 //show all of grand patrons
@@ -108,5 +107,4 @@ void PrintGrandPatrons( GrandPatrons* head )
         cout << p->donate->name << endl;
         p = p->next;
     }
-    cout << endl;
 }
