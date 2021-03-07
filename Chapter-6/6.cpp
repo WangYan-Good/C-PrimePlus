@@ -25,7 +25,7 @@ int main()
     //create Patrons
     //
     Patrons* pahead = new Patrons;
-    pahead->next = nullptr;
+    pahead->donate = nullptr;
     pahead->next = nullptr;
     for( int index = 0; index < DonaPers; index++ )
     {
