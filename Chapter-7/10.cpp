@@ -34,7 +34,9 @@ double add(double x, double y)
 
 double calculate( double x, double y, double (*Add)( double , double ) )
 {
-  return (*Add)(x,y) ;
+  //return (*Add)(x,y) ;
+  // or
+  return Add(x,y);
 }
 
 int main()
