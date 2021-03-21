@@ -1,6 +1,4 @@
-#include<iostream>
 #include "1.h"
-#include<cstring>
 /*
 下面是一个头文件：
 //golg.h --for pe9-1.cpp
@@ -50,6 +48,12 @@ void setgolf( golf & g, const char * name, int hc )
 
 int setgolf(golf & g)
 {
+  std::cout << "Enter golf.fullname:";
+  std::cin >> g.fullname;
+
+  std::cout << "Enter golf.handicap:";
+  std::cin >> g.handicap;
+
   if ( g.fullname != NULL ) return 1;
   else return 0;
 }

@@ -1,3 +1,5 @@
+#include<iostream>
+#include<cstring>
 //golg.h --for pe9-1.cpp
 
 const int Len = 40;
