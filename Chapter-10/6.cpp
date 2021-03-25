@@ -19,8 +19,27 @@ class Move
 };
 请提供成员函数的定义和测试这个类的程序
 */
-
+Move::Move( double a, double b )
+{
+  x = a;
+  y = b;
+}
 Move Move::add( const Move & m ) const
 {
-  
+  Move mv;
+  mv.x += m.x;
+  mv.y += m.y;
+  return mv;
+}
+
+void Move::reset(double a, double b)
+{
+  x = a;
+  y = b;
+}
+
+void Move::showmove() const
+{
+  std::cout << x << std::endl;
+  std::cout << y << std::endl;
 }
