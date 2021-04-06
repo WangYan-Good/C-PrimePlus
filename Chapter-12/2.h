@@ -22,9 +22,9 @@ public:
     String & operator=(const String & st);
     String & operator=(const char * ct);
     char & operator[] (int i);
-    friend bool & operator<(const String & st1, const String &st2);
-    friend bool & operator>(const String & st1, const String &st2);
-    friend bool & operator==(const String & st1, const String &st2);
+    friend bool operator<(const String & st1, const String &st2);
+    friend bool operator>(const String & st1, const String &st2);
+    friend bool operator==(const String & st1, const String &st2);
     friend ostream & operator<<(ostream & os, const String & st);
     friend istream & operator>>(istream & is, String & st);
     static int HowMany();

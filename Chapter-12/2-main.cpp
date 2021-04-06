@@ -61,16 +61,16 @@ That's right!
 Bye
 */
 #include<iostream>
-using namespace std;
 #include "2.h"
+using namespace std;
 int main ()
 {
     String s1( " and I am a C++ student . " );
     String s2 = "P1ease enter your name: ";
-    string s3;
+    String s3;
     cout << s2 ;    // overloaded << operator
     cin >> s3;      // overloaded >> operator
-    s2 = "My name is " +s3;     // overloaded =, + operators
+    s2 = "My name is " + s3;     // overloaded =, + operators
     cout << s2 << ".\n";
     s2 = s2 + s1 ;
     s2 .stringup() ;            // converts string to uppercase

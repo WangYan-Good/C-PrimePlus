@@ -88,7 +88,7 @@ int String::has(char x)
     {
         if ( str[count] == x ) count++;
     }
-    return count++;
+    return count;
 }
 
 String & String::operator=(const String & st)
@@ -102,9 +102,9 @@ String & String::operator=(const String & st)
 
 String & String::operator=(const char * ct)
 {
-    this->len = strlen(ct);
-    this->str = new char[this->len + 1];
-    strcpy_s( this->str, this->len+1, ct );
+    len = strlen(ct);
+    str = new char[len + 1];
+    strcpy_s( str, len+1, ct );
     num_strings++;
     return *this;
 }
@@ -114,21 +114,39 @@ char & String::operator[] (int i)
     return str[i];
 }
 
-bool & operator<(const String & st1, const String &st2)
+bool operator<(const String & st1, const String &st2)
 {
-    bool  result = strcmp(st1.str, st2.str)<0?true:false ;
+    bool  result;
+    if (strcmp(st1.str, st2.str)<0)
+    {
+        result = true;
+    } else {
+        result = false;
+    }
     return result;
 }
 
-bool & operator>(const String & st1, const String &st2)
+bool operator>(const String & st1, const String &st2)
 {
-    bool  result = strcmp(st1.str, st2.str)>0?true:false ;
+    bool  result;
+    if (strcmp(st1.str, st2.str)>0)
+    {
+        result = true;
+    } else {
+        result = false;
+    }
     return result;
 }
 
-bool & operator==(const String & st1, const String &st2)
+bool operator==(const String & st1, const String &st2)
 {
-    bool  result = strcmp(st1.str, st2.str)==0?true:false ;
+    bool  result;
+    if (strcmp(st1.str, st2.str)==0)
+    {
+        result = true;
+    } else {
+        result = false;
+    }
     return result;
 }
 
@@ -153,7 +171,6 @@ istream & operator>>(istream & is, String & st)
     return is;
 }
 
-
 String String::operator+(const String & st) const
 {
     int total_len = len + st.len;
@@ -163,7 +180,6 @@ String String::operator+(const String & st) const
     temp[total_len] = '\0';
     return String(temp);
 }
-
 
 String String::operator+(const char * s) const
 {
