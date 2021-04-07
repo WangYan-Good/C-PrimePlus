@@ -63,6 +63,7 @@ Bye
 #include<iostream>
 #include "2.h"
 using namespace std;
+int String::num_strings = 0;
 int main ()
 {
     String s1( " and I am a C++ student . " );

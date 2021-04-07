@@ -190,7 +190,7 @@ String String::operator+(const char * s) const
     temp[total_len] = '\0';
     return String(temp);
 }
- 
+
 String operator+(const char * s, const String & st)
 {
     return String(s) + st;
