@@ -40,6 +40,8 @@ int Queue::queuecount() const
 
 bool Queue::enqueue( const Item & item )
 {
+    // std::cout << "Item arrive:" << item.when() << std::endl;
+    // std::cout << "Item processor:" << item.ptime() << std::endl;
     if(isfull()) return false;
     Node* add = new Node;
 
@@ -50,6 +52,7 @@ bool Queue::enqueue( const Item & item )
     else rear->next = add;
 
     rear = add;
+    items++;
     return true;
 }
 

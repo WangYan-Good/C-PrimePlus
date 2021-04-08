@@ -54,7 +54,9 @@ int main()
             if( newcustomer(min_per_cust) )
             {
                 if(line.isfull())                  // queue is full , customer turn ways 
+               {
                    turnways++;
+               }
                else
                {
                    customers++;                    //customer add
@@ -62,6 +64,9 @@ int main()
                    line.enqueue(temp);             // add temp node into queue
                }
             }
+            // std::cout << "customers: " << customers << std::endl;
+            // std::cout << "wait_time: " << wait_time << std::endl;
+            // if (line.isempty()) std::cout << "empty" << std::endl;
             if(wait_time <= 0 && !line.isempty())
             {
                 line.dequeue(temp);                //server current customer

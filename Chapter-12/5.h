@@ -7,7 +7,7 @@ private:
     long arrive;
     int  processtime;
 public:
-    Customer() { arrive = processtime = 0; }
+    Customer(long arr = 0, int pro = 0) { arrive = arr; processtime = pro; }
     void set( long when );
     long when() const { return arrive; }
     int ptime() const { return processtime; }
