@@ -27,6 +27,7 @@ Cd::Cd(const char* s1, const char* s2, int n, double x)
 
 void Cd::Report() const
 {
+    std::cout << "Cd" << std::endl;
     std::cout << "performers: " << performers << std::endl;
     std::cout << "label: " << label << std::endl;
     std::cout << "selection: " << selections << std::endl;
@@ -66,6 +67,7 @@ Classic::Classic( const char* s0, const char* s1, const char* s2, int n, double 
 void Classic::Report() const
 {
     Cd::Report();
+    std::cout << "Classic" << std::endl;
     std::cout << "mainworks: " << mainworks << std::endl;
 }
 
