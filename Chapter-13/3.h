@@ -1,6 +1,6 @@
 #ifndef _DMA_H_
 #define _DMA_H_
-
+#include<ostream>
 class ABC
 {
 private:
@@ -15,9 +15,14 @@ class baseDMA : public ABC
 {
 private:
     /* data */
+    char* label;
+    int rating;
 public:
-    baseDMA(/* args */);
-    ~baseDMA();
+    baseDMA( const char* l = "null", int r = 0 );
+    baseDMA( const baseDMA & rs );
+    virtual ~baseDMA();
+    baseDMA & operator=( const baseDMA &rs );
+    friend std::ostream & operator<<( std::ostream & os, const baseDMA & rs );
     virtual void View();
 };
 
@@ -25,29 +30,28 @@ class lacksDMA : public baseDMA
 {
 private:
     /* data */
+    enum{ COL_LEN = 40 };
+    char color[COL_LEN];
 public:
-    lacksDMA(/* args */);
-    ~lacksDMA();
+    lacksDMA( const char* c = "blank", const char* l = "null", int r = 0 );
+    lacksDMA( const char* c, const baseDMA & rs );
+    virtual ~lacksDMA();
+    lacksDMA & operator=( const lacksDMA & rs );
+    friend std::ostream & operator<<(std::ostream & os, const lacksDMA & rs);
+    virtual void View();
 };
 
 class hasDMA : public baseDMA
 {
 private:
-    /* data */
+    char* style;
 public:
-    hasDMA
-(/* args */);
-    ~hasDMA
-();
+    hasDMA( const char* s = "none", const char* l = "null", int r = 0 );
+    hasDMA( const char* s, const baseDMA & rs );
+    virtual ~hasDMA();
+    hasDMA & operator=( const hasDMA & rs );
+    friend std::ostream & operator<<( std::ostream & os, const hasDMA & rs );
+    virtual void View();
 };
-
-hasDMA::hasDMA(/* args */)
-{
-}
-
-hasDMA::~hasDMA()
-{
-}
-
 
 #endif
