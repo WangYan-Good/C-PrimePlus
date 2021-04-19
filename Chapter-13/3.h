@@ -1,6 +1,7 @@
 #ifndef _DMA_H_
 #define _DMA_H_
 #include<ostream>
+#include<iostream>
 class ABC
 {
 private:
