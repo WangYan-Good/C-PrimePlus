@@ -1,5 +1,5 @@
 #include "3.h"
-
+#include <cstring>
 ABC::ABC(/* args */)
 {
 
@@ -20,7 +20,10 @@ baseDMA::baseDMA( const char* l , int r )
 
 baseDMA::baseDMA( const baseDMA & rs )
 {
-    *this=rs;
+    label = new char[strlen(rs.label)+1];
+    strcpy_s( label, strlen(rs.label)+1, rs.label );
+
+    rating = rs.rating;
 }
 
 baseDMA::~baseDMA()
@@ -34,19 +37,19 @@ baseDMA & baseDMA::operator=( const baseDMA &rs )
     strcpy_s( this->label, strlen(rs.label)+1, rs.label );
 
     this->rating = rs.rating;
+    return *this;
 }
 
 std::ostream & operator<<( std::ostream & os, const baseDMA & rs )
 {
-    os << "label:" << rs.label;
-    os << "rating:" << rs.rating;
+    os << "label:" << rs.label << std::endl;
+    os << "rating:" << rs.rating << std::endl;
     return os;
 }
 
 void baseDMA::View()
 {
-    std::cout<<label;
-    std::cout<<rating;
+    std::cout<<*this << std::endl;
 }
 
 lacksDMA::lacksDMA( const char* c, const char* l, int r ):baseDMA( l, r )
@@ -54,16 +57,9 @@ lacksDMA::lacksDMA( const char* c, const char* l, int r ):baseDMA( l, r )
     strcpy_s( color, COL_LEN, c );
 }
 
-lacksDMA::lacksDMA( const char* c, const baseDMA & rs )
+lacksDMA::lacksDMA( const char* c, const baseDMA & rs ):baseDMA(rs)
 {
-    baseDMA(rs);
     strcpy_s( color, COL_LEN, c );
-}
-
-lacksDMA::lacksDMA( const lacksDMA & rs )
-{
-    baseDMA(rs);
-    strcpy_s( color, COL_LEN, rs.color );
 }
 
 lacksDMA::~lacksDMA()
@@ -73,18 +69,21 @@ lacksDMA::~lacksDMA()
 
 lacksDMA & lacksDMA::operator=( const lacksDMA & rs )
 {
-    lacksDMA(rs);
+    baseDMA::operator=(rs);
+    strcpy_s( color, COL_LEN, rs.color );
+    return *this;
 }
 
 std::ostream & operator<<(std::ostream & os, const lacksDMA & rs)
 {
-    os << "color:" << rs.color;
+    os << (const baseDMA &)rs;
+    os << "color:" << rs.color << std::endl;
     return os;
 }
 
 void lacksDMA::View()
 {
-    std::cout << *this;
+    std::cout << *this << std::endl;
 }
 
 hasDMA::hasDMA( const char* s, const char* l, int r ):baseDMA(l,r)
@@ -99,6 +98,11 @@ hasDMA::hasDMA( const char* s, const baseDMA & rs ):baseDMA(rs)
     strcpy_s(style, strlen(s)+1, s);
 }
 
+// hasDMA::hasDMA( const hasDMA & hs )
+// {
+//     *this = hs;
+// }
+
 hasDMA::~hasDMA()
 {
     delete[] style;
@@ -106,15 +110,20 @@ hasDMA::~hasDMA()
 
 hasDMA & hasDMA::operator=( const hasDMA & rs )
 {
-
+    baseDMA::operator=(rs);
+    style = new char[strlen(rs.style)+1];
+    strcpy_s( style, strlen(rs.style), rs.style );
+    return *this;
 }
 
 std::ostream & operator<<( std::ostream & os, const hasDMA & rs )
 {
-
+    os << (const baseDMA &)rs ;
+    os << "style:" << rs.style << std::endl;
+    return os;
 }
 
 void hasDMA::View()
 {
-
+    std::cout << *this << std::endl; 
 }
