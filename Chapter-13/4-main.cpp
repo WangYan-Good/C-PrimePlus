@@ -56,37 +56,46 @@ c. 第三个任务是解释为何没有将operator=()和operator<<()声明为虚
 
 d. 第四个任务是提供VintagePort中各个方法的定义。
 */
-#include <iostream>
-using namespace std;
-class Port
+// useport.cpp -- check the functions
+#include "4.h"
+ 
+int main()
 {
-private:
-    char* brand;
-    char style[20];
-    int bottles;
-public:
-    Port( const char * br = "none", const char * st = "none", int b = 0 );
-    Port( const Port & p );
-    virtual ~Port() { delete[] brand; }
-    Port & operator=( const Port & p );
-    Port & operator+=( int b );
-    Port & operator-=( int b );
-    int BottleCount() const { return bottles; } ;
-    virtual void Show() const;
-    friend ostream & operator<<( ostream & os, const Port & p );
-};
-
-class VintagePort : public Port
-{
-private:
-    char* nickname;
-    int year;
-public:
-    VintagePort();
-    VintagePort( const char* br, int b, const char* nn, int y );
-    VintagePort( const VintagePort & vp );
-    ~VintagePort() { delete[] nickname; };
-    VintagePort & operator=( const VintagePort & vp );
-    void Show() const;
-    friend ostream & operator<<( ostream & os, const VintagePort & vp );
-};
+    Port wine1("Leonardo", "white", 15);
+    Port wine2 = wine1;
+    cout << "Now your wines are:\n";
+    wine1.Show();
+    wine2.Show();
+    wine1 += 18;
+    wine2 -= 6;
+    cout << "After the change, your wines' bottles are:\n";
+    cout << "Wine1: ";
+    wine1.BottleCount();
+    cout << "Wine2: ";
+    wine2.BottleCount();
+    cout << "And the conclusion is\n";
+    cout << wine1 << endl;
+    cout << wine2 << endl;
+    cout << endl;
+    cout << "Now your wines upgrade to VintagePort class.\n";
+    VintagePort wine3("Elma", 21, "tww", 23);
+    VintagePort wine4;
+    (Port &)wine4 = (Port &)wine3;
+    (VintagePort &)wine4 = (VintagePort &)wine3;
+    cout << "Now the new wines are:\n";
+    wine3.Show();
+    wine4.Show();
+    wine3 += 17;
+    wine4 -= 5;
+    cout << "After the change, your new wines' bottles are:\n";
+    cout << "Wine3: ";
+    wine3.BottleCount();
+    cout << "Wine4: ";
+    wine4.BottleCount();
+    cout << "And the conclusion is\n";
+    cout << wine3 << endl;
+    cout << wine4 << endl;
+    cout << endl;
+    system("Pause");
+    return 0;
+}
