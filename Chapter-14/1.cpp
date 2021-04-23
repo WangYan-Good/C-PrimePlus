@@ -21,7 +21,7 @@ void Pair<T1,T2>::Show(int y) const
   }
 }
 
-Wine::Wine( char* l, int y, const int yr[], const int bot[] )
+Wine::Wine( const char* l, int y, const int yr[], const int bot[] )
 {
   winename = l;
   yrs = y;
@@ -51,6 +51,11 @@ void Wine::GetBottles()
 std::string & Wine::Label()
 {
   return winename;
+}
+
+int Wine::sum()
+{
+  return pair.Sum();
 }
 
 void Wine::Show() const

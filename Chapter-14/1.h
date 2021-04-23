@@ -28,7 +28,7 @@ class Wine
     PairArray pair;
     int yrs;
   public:
-    Wine( char* l, int y, const int yr[], const int bot[] );
+    Wine( const char* l, int y, const int yr[], const int bot[] );
     Wine( char* l, int y );
     void GetBottles();
     std::string & Label();
