@@ -3,23 +3,36 @@
 #include <iostream>
 #include <cstring>
 #include <valarray>
-typedef std::valarray<int> ArrayInt;
 // typedef Pair<ArrayInt,ArrayInt> PairArrray;
+template <class T1, class T2>
+class Pair
+{
+  private:
+    T1 a;
+    T2 b;
+  public:
+    Pair( const T1 & yr, const T2 & bot ):a(yr),b(bot){}
+    void set( const T1 & yr, const T2 & bot );
+    Pair(){};
+    int Sum() const;
+    void Show(int y) const;
+};
+
+typedef std::valarray<int> ArrayInt;
+typedef Pair<ArrayInt, ArrayInt> PairArray;
+
 class Wine
 {
   private:
     std::string winename;
-    Pair pair;
+    PairArray pair;
+    int yrs;
   public:
-    Wine();
-};
-
-class Pair
-{
-  private:
-    std::valarray<int> ArrayIntYear;
-    std::valarray<int> ArrayIntNumb;
-  public:
-    Pair();
+    Wine( char* l, int y, const int yr[], const int bot[] );
+    Wine( char* l, int y );
+    void GetBottles();
+    std::string & Label();
+    int sum();
+    void Show() const;
 };
 #endif
