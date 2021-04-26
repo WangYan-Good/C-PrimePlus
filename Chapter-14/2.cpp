@@ -41,30 +41,32 @@ void Wine::GetBottles()
     std::cout << "Enter bottles for that years: ";
     std::cin >> bot[i];
   }
-  (PairArray<ArrayInt, ArrayInt> &)(*this).set(yr, bot);
+  PairArray::set(yr,bot);
 }
 
 std::string & Wine::Label()
 {
-
+  return (std::string &)(*this);
 }
 
 int Wine::sum()
 {
-
+  return PairArray::Sum();
 }
 
 void Wine::Show() const
 {
-
+  std::cout << "Wine: " << winename << std::endl;
+  std::cout << "\t\tYear\tBottles\n";
+  PairArray::Show(yrs);
 }
 
-Wine & Wine::operator=( const Wine & wine )
-{
+// Wine & Wine::operator=( const Wine & wine )
+// {
 
-}
+// }
 
-std::ostream & operator<<( std::ostream & os, const Wine & wine )
-{
+// std::ostream & operator<<( std::ostream & os, const Wine & wine )
+// {
     
-}
+// }

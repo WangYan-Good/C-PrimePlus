@@ -24,7 +24,7 @@ class Pair
 typedef std::valarray<int> ArrayInt;
 typedef Pair<ArrayInt, ArrayInt> PairArray;
 
-class Wine : private PairArray
+class Wine : private std::string, private PairArray
 {
   private:
     std::string winename;
@@ -36,8 +36,8 @@ class Wine : private PairArray
     std::string & Label();
     int sum();
     void Show() const;
-    Wine & operator=( const Wine & wine);
-    friend std::ostream & operator<<( std::ostream & os, const Wine & wine );
+    // Wine & operator=( const Wine & wine);
+    // friend std::ostream & operator<<( std::ostream & os, const Wine & wine );
 };
 
 #endif
