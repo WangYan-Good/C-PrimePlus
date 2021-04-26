@@ -41,6 +41,11 @@
         "xstring": "cpp",
         "xtr1common": "cpp",
         "xutility": "cpp",
-        "valarray": "cpp"
+        "valarray": "cpp",
+        "array": "cpp",
+        "bit": "cpp",
+        "clocale": "cpp",
+        "fstream": "cpp",
+        "vector": "cpp"
     }
 }
