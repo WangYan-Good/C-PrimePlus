@@ -5,11 +5,11 @@
 class Person
 {
     private:
-      std::string lastname;
-      std::string firstname;
+      char* lastname;
+      char* firstname;
     public:
       virtual void Show() = 0;
-      Person( char* fn = nullptr, char* ln = nullptr );
+      Person( const char* fn = nullptr, const char* ln = nullptr );
 };
 
 class Gunsliner : public Person
@@ -18,7 +18,7 @@ class Gunsliner : public Person
       int tracenumber;
       double time;
     public:
-      Gunsliner( char* fn = nullptr, char* ln = nullptr, int tn = 0 );
+      Gunsliner( const char* fn = nullptr, const char* ln = nullptr, int tn = 0, double t = 0 );
       virtual void Show();
       double Draw();
 };
@@ -28,19 +28,20 @@ class PokerPlayer : public Person
     private:
       int cardvalue;
     public:
-      PokerPlayer( char* fn = nullptr, char* ln = nullptr, int cv = 0 );
+      PokerPlayer( const char* fn = nullptr, const char* ln = nullptr, int cv = 0 );
       int Draw();
       virtual void Show();
-}
+};
 
 class BadDude : public Gunsliner, public PokerPlayer
 {
     private:
 
     public:
-      Bad
+      BadDude( const char* fn = nullptr, const char* ln = nullptr, int tn = 0, double t = 0, int cv = 0 );
       double Gdraw();
       int Cdraw();
-}
+      virtual void Show();
+};
 
 #endif

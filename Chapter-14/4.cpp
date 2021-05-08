@@ -1,9 +1,14 @@
 #include "4.h"
-
-Person::Person( char* fn, char* ln )
+#include <cstring>
+Person::Person( const char* fn, const char* ln )
 {
-    firstname.copy( fn, strlen(fn) );
-    lastname.copy( ln, strlen(ln) );
+    if( firstname != nullptr ) delete [] firstname;
+    firstname = new char[strlen(fn)+1];
+    strcpy( firstname, fn );
+
+    if( lastname != nullptr ) delete [] lastname;
+    lastname = new char[strlen(ln)+1];
+    strcpy( lastname, ln );
 }
 
 void Person::Show()
@@ -14,12 +19,14 @@ void Person::Show()
 
 Person::~Person()
 {
-
+    delete [] firstname;
+    delete [] lastname;
 }
 
-Gunsliner::Gunsliner( char* fn, char* ln, int tn ):Person( fn, ln )
+Gunsliner::Gunsliner( const char* fn, const char* ln, int tn, double t ):Person( fn, ln )
 {
     tracenumber = tn;
+    time = t;
 }
 
  void Gunsliner::Show()
@@ -40,7 +47,7 @@ Gunsliner::~Gunsliner()
     
 }
 
-PokerPlayer::PokerPlayer( char* fn, char* ln, int cv ):Person(fn, ln)
+PokerPlayer::PokerPlayer( const char* fn, const char* ln, int cv ):Person(fn, ln)
 {
     cardvalue = cv;
 }
@@ -58,6 +65,34 @@ void PokerPlayer::Show()
 }
 
 PokerPlayer::~PokerPlayer()
+{
+
+}
+
+BadDude::BadDude( const char* fn, const char* ln, int tn, double t, int cv ):Gunsliner(fn, ln, tn, t), PokerPlayer( fn, ln, cv )
+{
+
+}
+
+double BadDude::Gdraw()
+{
+    return Gunsliner::Draw();
+}
+
+int BadDude::Cdraw()
+{
+    return PokerPlayer::Draw();
+}
+
+void BadDude::Show()
+{
+    std::cout << "BadDude: " << std::endl;
+    Person::Show();
+    std::cout << " Gunsliner::time " << Gunsliner::Draw() << std::endl;
+    std::cout << " PokerPlayer::cardvalue " << PokerPlayer::Draw << std::endl;
+}
+
+BadDude::~BadDude()
 {
 
 }

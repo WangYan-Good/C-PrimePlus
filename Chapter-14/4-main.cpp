@@ -9,3 +9,18 @@ PokerPlayer类使用Person类的show()函数。BadDude()类从Gunslinger和Poker
 它包含Gdraw()成员（返回坏蛋拔枪的时间）和Cdraw()成员（返回下一张扑克牌），另外还有一个合适的Show()函数。
 请定义这些类和方法以及其他必要的方法（如用于设置对象值的方法），并使用一个类似于程序清单14.12的简单程序对它们进行测试。
 */
+#include "4.h"
+
+int main()
+{
+    Gunsliner gunsliner( "wang", "yan", 8, 3.2 );
+    gunsliner.Show();
+
+    PokerPlayer pokerplayer( "xiao", "ming", 50 );
+    pokerplayer.Show();
+
+    BadDude baddude( "xiao", "hong", 32, 4.54, 12 );
+    baddude.Show();
+
+    return 0;
+}
