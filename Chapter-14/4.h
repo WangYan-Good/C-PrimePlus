@@ -10,6 +10,7 @@ class Person
     public:
       virtual void Show() = 0;
       Person( const char* fn = nullptr, const char* ln = nullptr );
+      ~Person();
 };
 
 class Gunsliner : public Person
@@ -21,6 +22,7 @@ class Gunsliner : public Person
       Gunsliner( const char* fn = nullptr, const char* ln = nullptr, int tn = 0, double t = 0 );
       virtual void Show();
       double Draw();
+      ~Gunsliner();
 };
 
 class PokerPlayer : public Person
@@ -31,6 +33,7 @@ class PokerPlayer : public Person
       PokerPlayer( const char* fn = nullptr, const char* ln = nullptr, int cv = 0 );
       int Draw();
       virtual void Show();
+      ~PokerPlayer();
 };
 
 class BadDude : public Gunsliner, public PokerPlayer
@@ -42,6 +45,7 @@ class BadDude : public Gunsliner, public PokerPlayer
       double Gdraw();
       int Cdraw();
       virtual void Show();
+      ~BadDude();
 };
 
 #endif

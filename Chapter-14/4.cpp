@@ -87,9 +87,8 @@ int BadDude::Cdraw()
 void BadDude::Show()
 {
     std::cout << "BadDude: " << std::endl;
-    Person::Show();
-    std::cout << " Gunsliner::time " << Gunsliner::Draw() << std::endl;
-    std::cout << " PokerPlayer::cardvalue " << PokerPlayer::Draw << std::endl;
+    Gunsliner::Show();
+    std::cout << " PokerPlayer::cardvalue " << PokerPlayer::Draw() << std::endl;
 }
 
 BadDude::~BadDude()

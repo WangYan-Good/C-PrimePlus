@@ -15,6 +15,7 @@ int main()
 {
     Gunsliner gunsliner( "wang", "yan", 8, 3.2 );
     gunsliner.Show();
+    std::cout << gunsliner.Draw() << std::endl;
 
     PokerPlayer pokerplayer( "xiao", "ming", 50 );
     pokerplayer.Show();
