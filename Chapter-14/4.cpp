@@ -4,14 +4,14 @@ Person::Person( const char* fn, const char* ln )
 {
     if( firstname != nullptr ) delete [] firstname;
     firstname = new char[strlen(fn)+1];
-    strcpy( firstname, fn );
+    strcpy_s( firstname, strlen(fn)+1, fn );
 
     if( lastname != nullptr ) delete [] lastname;
     lastname = new char[strlen(ln)+1];
-    strcpy( lastname, ln );
+    strcpy_s( lastname, strlen(ln)+1, ln );
 }
 
-void Person::Show()
+void Person::Show() 
 {
     std::cout << "First name: " << firstname << std::endl;
     std::cout << "Last name: " << lastname << std::endl; 
@@ -21,6 +21,7 @@ Person::~Person()
 {
     delete [] firstname;
     delete [] lastname;
+    std::cout << "Person has been deleted" << std::endl;
 }
 
 Gunsliner::Gunsliner( const char* fn, const char* ln, int tn, double t ):Person( fn, ln )
@@ -29,7 +30,7 @@ Gunsliner::Gunsliner( const char* fn, const char* ln, int tn, double t ):Person(
     time = t;
 }
 
- void Gunsliner::Show()
+ void Gunsliner::Show() 
 {
     std::cout << "Gunsliner Show:" << std::endl;
     Person::Show();
@@ -44,7 +45,7 @@ double Gunsliner::Draw()
 
 Gunsliner::~Gunsliner()
 {
-    
+    std::cout << "Gunsliner has been deleted" << std::endl;
 }
 
 PokerPlayer::PokerPlayer( const char* fn, const char* ln, int cv ):Person(fn, ln)
@@ -57,7 +58,7 @@ int PokerPlayer::Draw()
     return cardvalue;
 }
 
-void PokerPlayer::Show()
+void PokerPlayer::Show() 
 {
     std::cout << "PokerPlayer:" << std::endl;
     Person::Show();
@@ -66,7 +67,7 @@ void PokerPlayer::Show()
 
 PokerPlayer::~PokerPlayer()
 {
-
+    std::cout << "PokerPlayer has been deleted" << std::endl;
 }
 
 BadDude::BadDude( const char* fn, const char* ln, int tn, double t, int cv ):Gunsliner(fn, ln, tn, t), PokerPlayer( fn, ln, cv )
@@ -93,5 +94,5 @@ void BadDude::Show()
 
 BadDude::~BadDude()
 {
-
+    std::cout << "BadDude has been deleted" << std::endl;
 }
