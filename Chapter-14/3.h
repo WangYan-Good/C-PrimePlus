@@ -1,6 +1,6 @@
 #ifndef _CHAPTER_14_3_H_
 #define _CHAPTER_14_3_H_
-template<typename Q>
+template<typename Q>  //Q type
 class QueueTp
 {
   private:
@@ -20,9 +20,21 @@ class QueueTp
     QueueTp( int qs = Q_SIZE );
     ~QueueTp();
     bool isempty() const;
-    boot isfull() const;
+    bool isfull() const;
     int queuecount() const;
-    bool enqueue( const T & item );
-    bool dequeue( T & item );
+    bool enqueue( const Q & item );
+    bool dequeue( Q & item );
+};
+
+class Worker
+{
+  private:
+    char* name;
+    long id;
+  public:
+    Worker( char* n = nullptr, long = 0L );
+    virtual void Set();
+    virtual void Show() const;
+    ~Worker();
 };
 #endif
