@@ -4,26 +4,27 @@ template<typename Q>  //Q type
 class QueueTp
 {
   private:
-    struct Node
+    typedef struct Node
     {
-      Q Node;
-      Q* next;
-    };
+      Q item;
+      struct Node* next;
+    } Node;
     enum { Q_SIZE = 10 };
     Node* front;
     Node* rear;
-    int item;
+    int itemnum;
     const int qsize;
     QueueTp( const QueueTp & q ) : qsize(0) {}
     QueueTp & operator=( const QueueTp & q ) { return *this; };
   public:
-    QueueTp( int qs = Q_SIZE );
+    QueueTp( int qs = Q_SIZE ) : qsize(qs);
     ~QueueTp();
     bool isempty() const;
     bool isfull() const;
     int queuecount() const;
-    bool enqueue( const Q & item );
-    bool dequeue( Q & item );
+    bool enqueue( const Q & im );
+    bool dequeue( Q & im );
+    
 };
 
 class Worker
@@ -32,7 +33,7 @@ class Worker
     char* name;
     long id;
   public:
-    Worker( char* n = nullptr, long = 0L );
+    Worker( char* n = nullptr, long i = 0L );
     virtual void Set();
     virtual void Show() const;
     ~Worker();
