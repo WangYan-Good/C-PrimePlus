@@ -17,7 +17,7 @@ class QueueTp
     QueueTp( const QueueTp & q ) : qsize(0) {}
     QueueTp & operator=( const QueueTp & q ) { return *this; };
   public:
-    QueueTp( int qs = Q_SIZE ) : qsize(qs);
+    QueueTp( int qs = Q_SIZE );
     ~QueueTp();
     bool isempty() const;
     bool isfull() const;
@@ -33,8 +33,8 @@ class Worker
     char* name;
     long id;
   public:
-    Worker( char* n = nullptr, long i = 0L );
-    virtual void Set();
+    Worker( const char* n = nullptr, long i = 0L );
+    virtual void Set( const char* n );
     virtual void Show() const;
     ~Worker();
 };

@@ -79,7 +79,7 @@ QueueTp<Q>::~QueueTp()
 
 }
 
-Worker::Worker( char* n, long i )
+Worker::Worker( const char* n, long i )
 {
     if( name != nullptr )
     {
@@ -91,10 +91,19 @@ Worker::Worker( char* n, long i )
     id = i;
 }
 
-void Worker::Set()
+void Worker::Set( const char* n )
 {
+    // std::string  strname;
     std::cout << "Enter name: ";
-    getline(std::cin, name);
+    // std::cin >> strname ;
+    
+    if( name != nullptr ) delete [] name;
+    name = new char[ strlen(n) + 1 ];
+    strcpy_s( name, strlen(n), n );
+
+    // strcpy_s( name, strname.length(), strname );
+    //getline(std::cin, name);
+
     std::cin.ignore();
 
     std::cout << "Enter id: ";
