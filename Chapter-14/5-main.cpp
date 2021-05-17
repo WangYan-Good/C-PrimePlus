@@ -123,3 +123,32 @@ abstr_emp tri[4] = {em, fi, hf, hf2}；
 for {int i = 0 ； i < 4 ； i++)
     tri[i].ShowAll();
 */
+#include <iostream>
+using namespace std;
+#include "5.h"
+
+int main(void)
+{
+    employee em (" Trip ", "Harrrs", "Thumper");
+    cout << em << endl;
+    em.ShowAll ();
+    manager ma("Amorphia", "Spindragon", "Nuancer", 5);
+    cout << ma << endl;
+    ma.ShowAll ();
+
+    fink fi("Mat" , "Oggs", "Oiler", "Juno Barr" );
+    cout << fi << endl;
+    fi.ShowAll();
+
+    highfink hf(ma, "Curly Kew"); // recruitment?
+    hf.ShowAll();
+    cout << "Press a key for next phase：\n";
+    cin.get();
+    highfink hf2;
+    hf2.SetAll();
+    cout << "Using an abstremp * pointer：\n";
+    abstr_emp * tri[4] = {&em, &fi, &hf, &hf2};
+    for (int i = 0; i < 4 ; i++)
+        tri[i]->ShowAll();
+    return 0;
+}
