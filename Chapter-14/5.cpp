@@ -103,72 +103,84 @@ void manager::SetAll()
     std::cin >> inchargeof;
 }
 
-fink::fink()
+fink::fink():abstr_emp()
 {
-
+    reportsto = "None";
 }
 
-fink::fink( const std::string & fn, const std::string & ln, const std::string & j, const std::string & rpo )
+fink::fink( const std::string & fn, const std::string & ln, 
+            const std::string & j, const std::string & rpo ):abstr_emp( fn, ln, j )
 {
-
+    reportsto = rpo;
 }
 
-fink::fink( const abstr_emp & e, const std::string & rpo )
+fink::fink( const abstr_emp & e, const std::string & rpo ):abstr_emp(e)
 {
-
+    reportsto = rpo;
 }
 
-fink::fink( const fink & e )
+fink::fink( const fink & e ):abstr_emp(e)
 {
-
+    reportsto = e.reportsto;
 }
 
 void fink::ShowAll() const
 {
-
+    abstr_emp::ShowAll();
+    std::cout << "reportsto: " << reportsto << std::endl << std::endl;
 }
 
 void fink::SetAll()
 {
-
+    abstr_emp::SetAll();
+    std::cout << "Input reporsto: ";
+    std::cin >> reportsto;
 }
 
-highfink::highfink()
+highfink::highfink():abstr_emp(), manager(), fink()
 {
 
 }
 
-highfink::highfink (const std::string & fn , const std::string & ln, const std::string & j, const std::string & rpo, int ico)
+highfink::highfink (const std::string & fn , const std::string & ln, 
+                    const std::string & j, const std::string & rpo, int ico):abstr_emp( fn, ln, j ), manager( fn, ln, j, ico ), fink( fn, ln, j, rpo )
 {
 
 }
 
-highfink::highfink (const abstr_emp & e, const std::string & rpo, int ico)
+highfink::highfink (const abstr_emp & e, const std::string & rpo, int ico):abstr_emp(e), manager( e, ico ), fink( e, rpo )
 {
 
 }
 
-highfink::highfink (const fink & ff, int ico)
+highfink::highfink (const fink & ff, int ico):fink(ff), manager( (const employee &)ff, ico )
 {
 
 }
 
-highfink::highfink (const manager & m, const std::string & rpo)
+highfink::highfink (const manager & m, const std::string & rpo):manager( m ), fink( (const employee &)m, rpo )
 {
 
 }
 
-highfink::highfink (const highfink & h)
+highfink::highfink (const highfink & h):abstr_emp(h), manager(h), fink(h)
 {
 
 }
 
 void highfink::ShowAll() const
 {
-
+    abstr_emp::ShowAll();
+    std::cout << "reportsto: " << fink::ReportsTo() << std::endl ;
+    std::cout << "inchargeof: " << manager::InChargeOf() << std::endl << std::endl ;
 }
 
 void highfink::SetAll()
 {
-    
+    abstr_emp::SetAll();
+    std::cout << "inchargeof: ";
+    std::cin >> manager::InChargeOf();
+
+    std::cout << "reporsto: ";
+    std::cin >> fink::ReportsTo();
 }
