@@ -40,6 +40,12 @@
         "xstddef": "cpp",
         "xstring": "cpp",
         "xtr1common": "cpp",
-        "xutility": "cpp"
+        "xutility": "cpp",
+        "valarray": "cpp",
+        "array": "cpp",
+        "bit": "cpp",
+        "clocale": "cpp",
+        "fstream": "cpp",
+        "vector": "cpp"
     }
 }
