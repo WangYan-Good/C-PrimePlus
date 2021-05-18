@@ -93,7 +93,7 @@ manager::manager( const manager & m ):abstr_emp(m)
 void manager::ShowAll() const
 {
     abstr_emp::ShowAll();
-    std::cout << "numbers of abstr_emps managed: " << inchargeof << std::endl;
+    std::cout << "numbers of abstr_emps managed: " << inchargeof << std::endl << std::endl;
 }
 
 void manager::SetAll()
