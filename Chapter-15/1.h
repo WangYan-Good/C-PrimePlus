@@ -22,6 +22,7 @@ class Tv
     void set_mode() { mode = (mode == Antenna) ? Cable : Antenna; }
     void set_input() { input = (input == TV) ? DVD : TV; }
     void setting() const;
+    void change_r_mode( Remote & r );
   private:
     int state;
     int volume;
@@ -39,7 +40,7 @@ class Remote
     int r_mode;
     enum { Normal, Interact };
   public:
-    Remote( int m = Tv::TV ) : mode(m) {}
+    Remote( int m = Tv::TV ) : mode(m) { (r_mode == Normal)?Normal:Interact; }
     bool volup(Tv & t) { return t.volup(); }
     bool voldown( Tv & t ) { return t.voldown(); }
     void onoff( Tv & t ) { t.onoff(); }
@@ -48,6 +49,7 @@ class Remote
     void set_chan( Tv & t, int c ) { t.channel = c; }
     void set_mode( Tv & t ) { t.set_mode(); }
     void set_input( Tv & t ) { t.set_input(); }
+    void show_r_mode(  );
 };
 
 #endif
