@@ -1,5 +1,27 @@
-/*
-2．修改程序清单15.11，使两种异常类型都是从头文件<tdexcept>提供的 logic_error类派生出来的类。
-让每个 what()方法都报告函数名和问题的性质。异常对象不用存储错误的参数值,而只需支持what( )方法。
+#ifndef _CHAPTER_15_2_H_
+#define  _CHAPTER_15_2_H_
 
-*/
+#include<iostream>
+#include<exception>
+#include<string>
+
+class bad_hmean : public std::logic_error
+{
+  private:
+    std::string  name;
+    double       v1;
+    double       v2;
+  public:
+    explicit bad_hmean( const std::string & name = "hmean", const std::string & s = "Error in hmean()\n", double a = 0, double b = 0 );
+
+};
+
+class bad_gmen : public std::logic_error
+{
+  private:
+
+  public:
+
+};
+
+#endif
