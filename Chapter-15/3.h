@@ -25,7 +25,11 @@ class bad_hmean : public bad
 
 class bad_gmean : public bad
 {
-  
+  public:
+    explicit bad_gmean( const std::string & n, const std::string & s = "Error in g_mean()\n", double a = 0, double b = 0 );
 };
+
+double hmean( double a, double b );
+double gmean( double a, double b );
 
 #endif
