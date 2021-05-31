@@ -28,7 +28,6 @@ bad_hmean::bad_hmean( const std::string & n, const std::string & s, double a, do
 void bad_hmean::mesg(  )
 {
   std::cout << "bad_hmean(" << bad::getv1() << " , " << bad::getv2() << " )\n";
-  std::logic_error(s);
 }
 
 bad_gmean::bad_gmean( const std::string & n, const std::string & s, double a, double b ):bad( n,s,a,b )
