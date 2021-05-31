@@ -12,8 +12,10 @@ class bad : public std::logic_error
     double       v2;
   public:
     explicit bad( const std::string & n, const std::string & s = "Error in bad()\n", double a = 0, double b =0 );
-    void mesg();
+    virtual void mesg(  );
     const char * what() { return "bad happened!\n"; }
+    double getv1();
+    double getv2();
     virtual ~bad() throw() {}
 };
 
@@ -21,12 +23,14 @@ class bad_hmean : public bad
 {
   public:
     explicit bad_hmean( const std::string & n, const std::string & s = "Error in h_mean()\n", double a = 0, double b = 0 );
+    void mesg();
 };
 
 class bad_gmean : public bad
 {
   public:
     explicit bad_gmean( const std::string & n, const std::string & s = "Error in g_mean()\n", double a = 0, double b = 0 );
+    void mesg(  );
 };
 
 double hmean( double a, double b );

@@ -8,6 +8,27 @@
 
 int main()
 {
-    bd;
+  double value1;
+  double value2;
 
+  std::cout << "Enter value 1:";
+  std::cin >> value1;
+
+  std::cout << "Enter value 2:";
+  std::cin >> value2;
+
+  try
+  {
+    std::cout << hmean( value1, value2 ) << std::endl;
+    std::cout << gmean( value1, value2 ) << std::endl;
+  } catch( bad_hmean & bhd )
+  {
+    bhd.mesg();
+  }
+  catch( bad_gmean & bgd )
+  {
+    bgd.mesg();
+  }
+
+  return 0;
 }
