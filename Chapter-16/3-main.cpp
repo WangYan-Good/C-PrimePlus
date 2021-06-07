@@ -9,7 +9,22 @@
 using namespace std;
 int main()
 {
-  fstream fout;
+  fstream  fout;
+  string   temp;
+  vector<string> wordlist;
+
   fout.open("string.txt");
-  
+
+  while( fout >> temp )
+  {
+    wordlist.push_back( temp );
+  }
+
+  const int NUM = wordlist.size();
+
+  for( auto x:wordlist )
+  {
+    cout << x << " " << endl;
+  }
+  return 0;
 }
