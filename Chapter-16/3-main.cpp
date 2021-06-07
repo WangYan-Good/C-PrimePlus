@@ -5,3 +5,11 @@
 由于程序应该每次从文件中读取一个单词，因此应使用运算符>>而不是getline()。
 文件中包含的单词应该用空格、制表符或换行符分隔。
 */
+#include "3.h"
+using namespace std;
+int main()
+{
+  fstream fout;
+  fout.open("string.txt");
+  
+}
