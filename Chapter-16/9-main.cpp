@@ -16,3 +16,26 @@ cout << (double)(end - start)/CLOCKS_PER_SEC;
 例如，可尝试包含100000、1000000和10000000个元素。
 */
 #include "9.h"
+int main()
+{
+    std::vector <int> vi0(10);
+    std::list <int> li;
+
+    for( auto x: vi0 )
+    {
+        x = rand();
+        Copy( x, li );
+    }
+
+    clock_t start = clock();
+    std::sort( vi0.begin(), vi0.end() );
+    clock_t end = clock();
+    std::cout << "vector time:" << (double)(end - start)/CLOCKS_PER_SEC;
+
+    start = clock();
+    std::sort( li.begin(), li.end() );
+    end = clock();
+    std::cout << "list time:" << (double)(end - start)/CLOCKS_PER_SEC;
+
+    return 0;
+}
