@@ -9,3 +9,31 @@ c. 在输入阶段结束后，使用一个循环让用户选择如下方式之�
 请注意，通过使用rbegin()和rend()，可避免创建按相反的顺序排列的shared_ptr矢量。
 */
 #include "10.h"
+int main()
+{
+    std::vector <Review> books;
+    Review temp;
+    while( FillReview( temp ) )
+    {
+        books.push_back(temp);
+    }
+    if( books.size() > 0 )
+    {
+        std::cout << "Thank you. You entered the following "
+                  << books.size() << " ratings:\n "
+                  << "Rating\tBook\n";
+        std::for_each( books.begin(), books.end(), ShowReview );
+
+        std::sort( books.begin(), books.end() );
+        std::cout << "Sorted by title: \nRating\tBook\n";
+        std::for_each( books.begin(), books.end(), ShowReview );
+
+        std::random_shuffle( books.begin(), books.end() );
+        std::cout << "After shuffling:\nRating\tBook\n";
+        std::for_each( books.begin(), books.end(), ShowReview );
+    } else {
+        std::cout << "No entries.";
+        std::cout << "Bye.\n";
+        return 0;
+    }
+}
