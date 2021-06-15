@@ -13,9 +13,12 @@ int main()
 {
     std::vector <Review> books;
     Review temp;
-    while( FillReview( temp ) )
+    while( true )
     {
-        books.push_back(temp);
+        if( FillReview( temp ) == true )
+        {
+            books.push_back(temp);
+        }
     }
     if( books.size() > 0 )
     {
