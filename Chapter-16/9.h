@@ -9,6 +9,6 @@
 #include <cstdlib>
 #include <ctime>
 
-void Copy( int num, std::list <int> & li );
+// void Copy( int num, std::list <int> & li );
 
 #endif

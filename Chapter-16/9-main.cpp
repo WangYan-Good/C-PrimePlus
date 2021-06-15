@@ -23,8 +23,8 @@ int main()
 
     for( auto x: vi0 )
     {
-        x = rand();
-        Copy( x, li );
+        x = std::rand();
+        li.push_back(x);
     }
 
     clock_t start = clock();
