@@ -9,3 +9,8 @@ void Store( std::string str, std::ofstream & fout)
 {
     fout << str << std::endl;
 }
+
+void Getstrs( std::ifstream & fin, std::vector<std::string> str)
+{
+    
+}

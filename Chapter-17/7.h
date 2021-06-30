@@ -8,5 +8,6 @@
 
 void ShowStr( std::string str );
 void Store( std::string str, std::ofstream & fout);
+void Getstrs( std::ifstream & fin, std::vector<std::string> str);
 
 #endif

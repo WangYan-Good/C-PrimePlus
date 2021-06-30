@@ -39,8 +39,7 @@ Store 的构造函数应接受一个指定 ifstream对象的参数，而重载�
 os.write((char *) &len,sizeof(std::size_t)); 1/ store lengthos , writels.data() , len);
 // store characters
 成员函数data()返回一个指针，该指针指向一个其中存储了字符串中字符的数组。它类似于成员函数c_str()，只是后者在数组末尾加上了一个空字符。
-编写函数GetStrs()，它根据文件恢复信息。该函数可以使用read( )来获得字符串的长度，然后使
-用一个循环从文件中读取相应数量的字符，并将它们附加到一个原米为工的T时Sng 不不古于string 的数据是私有的，因此必须使用string类的万法来将数据仔储到String对象中，而不能直接存储。
+编写函数GetStrs()，它根据文件恢复信息。该函数可以使用read( )来获得字符串的长度，然后使用一个循环从文件中读取相应数量的字符，并将它们附加到一个原米为工的T时Sng 不不古于string 的数据是私有的，因此必须使用string类的万法来将数据仔储到String对象中，而不能直接存储。
 
 */
 #include "7.h"
