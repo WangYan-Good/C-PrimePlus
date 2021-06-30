@@ -15,3 +15,4 @@ pc[i]->setall(); // invokes function corresponding to type of object
 为将数据保存到文件中，应设计一个虚函数 writeall();
 
 */
+#include "6.h"
