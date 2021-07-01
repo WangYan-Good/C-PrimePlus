@@ -50,14 +50,19 @@ int main()
     string temp;
     // acquire strings
     cout <<"Enter strings (empty line to quit):";
-    while (getline (cin, temp) && temp [0] != 'lO') vostr.push_back ( temp);
-    cout<< "Here is your input .ln" ;
+    while (getline (cin, temp) && temp != "quit") vostr.push_back ( temp);
+    cout << "Here is your input \n" ;
     for_each (vostr.begin (), vostr.end(), ShowStr);
 
     // store in a file
     ofstream fout( "strings.dat", ios_base::out | ios_base::binary);
-    for_each(vostr.begin() , vostr.end(),Store(fout));
+    // for_each(vostr.begin() , vostr.end(),Store(fout));
+    for( auto x = vostr.begin(); x != vostr.end(); ++x )
+    {
+      Store( *x, fout );
+    }
     fout.close ();
+
     // recover file contents
     vector<string> vistr;
     ifstream fin("strings.dat", ios_base::in | ios_base::binary);
@@ -67,6 +72,7 @@ int main()
     exit(EXIT_FAILURE);
     }
     Getstrs(fin, vistr);
-    cout << "\nHere are the strings read from the file:ln" ;for_each(vistr.begin() , vistr.end( , ShowStr) ;
+    cout << "\nHere are the strings read from the file:\n" ;
+    for_each(vistr.begin() , vistr.end() , ShowStr) ;
     return 0;
 }
