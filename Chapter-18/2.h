@@ -14,7 +14,7 @@ class Cpmv
     private:
         Info *pi ;
     public:
-        Cpmv () {};
+        Cpmv ();
         Cpmv (std::string q, std::string z);
         Cpmv (const Cpmv & cp);
         Cpmv (Cpmv && mv) ;

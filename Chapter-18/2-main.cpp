@@ -28,5 +28,21 @@ class Cpmv
 #include "2.h"
 int main()
 {
-  
+  Cpmv cp1( "hello", "world" );
+  std::cout << "cp1.Display" << std::endl;
+  cp1.Display();
+
+  Cpmv cp2( cp1 );
+  std::cout << "cp2.DisPlay" << std::endl;
+  cp2.Display();
+
+  Cpmv cp3 = cp1;
+  std::cout << "cp3.Display" << std::endl;
+  cp3.Display();
+
+  Cpmv && cp4 = cp1 + cp2;
+  std::cout << "cp4.Display" << std::endl;
+  cp4.Display();
+
+  return 0;
 }
